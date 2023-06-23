@@ -22,16 +22,16 @@ EntityManager.
 @Table(name = "customers")
 public class Customer {
     @Id
-    @Column
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column
+    @Column(name = "firstname")
     private String firstname;
-    @Column
+    @Column(name = "lastname")
     private String lastname;
-    @Column
+    @Column(name = "email")
     private String email;
-    @Column
+    @Column(name = "age")
     private int age;
 
     public Customer() {
