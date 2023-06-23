@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>КЛИЕНТЫ</title>
+
+    <style>th {background: #ADD8E6}table {border-collapse: collapse;} table th, table td {padding: 10px;}</style>
+</head>
+<body>
+<h1>Customers</h1>
+<table th:border="1">
+    <tr>
+        <th>id</th>
+        <th>firstname</th>
+        <th>lastname</th>
+        <th>email</th>
+        <th>age</th>
+        <th> </th>
+        <th> </th>
+    </tr>
+
+    <tr th:each="custom : ${customer}">
+
+        <td th:utext="${custom.getId()}">id</td>
+        <td th:utext="${custom.getFirstname()}">name</td>
+        <td th:utext="${custom.getLastname()}">lastname</td>
+        <td th:utext="${custom.getEmail()}">email</td>
+        <td th:utext="${custom.getAge()}">age</td>
+        <td>
+            <form th:action="@{customers/{id}(id=${custom.getId()})}" method="GET">
+                <button type="submit" style="width: 60px">Edit</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{/customers/{id}/delete(id=${custom.getId()})}" th:method="DELETE">
+                <button type="submit" style="width: 60px">Delete</button>
+            </form>
+        </td>
+    </tr>
+    <table>
+        <br>
+        <hr>
+        <a href="/customers/new">Create new user</a>
+</body>
+</html>
