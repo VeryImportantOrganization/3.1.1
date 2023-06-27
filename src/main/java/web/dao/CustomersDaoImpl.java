@@ -1,6 +1,5 @@
 package web.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import web.model.Customer;
@@ -13,7 +12,6 @@ import java.util.List;
 public class CustomersDaoImpl implements CustomersDao {
 
     @PersistenceContext //для автоматического связывания менеджера сущностей с бином
-    @Autowired
     private EntityManager entityManager;
     @Override
     public void addUser(Customer customer) {
