@@ -8,10 +8,10 @@ import web.service.CustomersService;
 
 @Controller
 @RequestMapping("/customers")
-public class customersController {
+public class CustomersController {
     private final CustomersService customersService;
 
-    public customersController(CustomersService customersService) {
+    public CustomersController(CustomersService customersService) {
         this.customersService = customersService;
     }
 
@@ -38,7 +38,7 @@ public class customersController {
         return "redirect:/customers";
     }
 
-    @GetMapping("/{id}/edit")
+    @GetMapping("/edit/{id}")
     public String editionUser(Model model, @PathVariable("id") long id) {
         model.addAttribute("customer", customersService.getUserById(id));
         return "edit";

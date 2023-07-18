@@ -12,7 +12,7 @@ import java.util.List;
 @Transactional
 public class CustomersDaoImpl implements CustomersDao {
 
-    @PersistenceContext //для автоматического связывания менеджера сущностей с бином
+    @PersistenceContext
     private EntityManager entityManager;
     @Override
     public void addUser(Customer customer) {
@@ -31,7 +31,7 @@ public class CustomersDaoImpl implements CustomersDao {
         return entityManager.find(Customer.class, id);
     }
     @Override
-    public List<Customer> usersList() {
+    public List<Customer> getAllUsers() {
         return entityManager.createQuery("FROM Customer", Customer.class).getResultList();
     }
 }

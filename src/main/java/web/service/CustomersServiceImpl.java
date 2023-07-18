@@ -41,6 +41,6 @@ public class CustomersServiceImpl implements CustomersService {
 
     @Override
     public List<Customer> usersList() {
-        return this.customersDao.usersList();
+        return this.customersDao.getAllUsers();
     }
 }

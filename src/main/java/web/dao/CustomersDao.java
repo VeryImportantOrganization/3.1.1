@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface CustomersDao {
 
-    public void addUser(Customer customer);
-    public void editUser(Customer customer);
-    public void removeUser(long id);
-    public Customer getUserById(long id);
-    public List<Customer> usersList();
+    void addUser(Customer customer);
+    void editUser(Customer customer);
+    void removeUser(long id);
+    Customer getUserById(long id);
+    List<Customer> getAllUsers();
 }
